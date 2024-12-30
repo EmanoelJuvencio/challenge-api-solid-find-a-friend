@@ -17,7 +17,7 @@ model Org {
   id            String   @id @default(uuid())
   name          String
   email         String   @unique
-  number        String
+  whatsapp      String   @default("")
   state         String
   city          String
   street        String
