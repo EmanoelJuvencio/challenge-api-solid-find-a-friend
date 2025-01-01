@@ -3,6 +3,7 @@ import { ZodError } from 'zod'
 import { env } from '@/env'
 import fastifyJwt from '@fastify/jwt'
 import { orgsRoutes } from './http/controller/orgs/routes'
+import fastifyCookie from '@fastify/cookie'
 
 export const app = fastify()
 
@@ -13,9 +14,11 @@ app.register(fastifyJwt, {
     signed: false,
   },
   sign: {
-    expiresIn: '10m',
+    expiresIn: '1d',
   },
 })
+
+app.register(fastifyCookie)
 
 app.get('/', () => {
   return { message: 'Hello World' }
