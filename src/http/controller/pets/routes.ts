@@ -10,6 +10,5 @@ export async function petsRoutes(app: FastifyInstance) {
   app.get('/pets', search)
   app.get('/pets/:id', details)
   // Daqui para baixo Rotas authenticadas
-  app.addHook('onRequest', verifyJWT)
-  app.post('/pets', create)
+  app.post('/pets', { onRequest: [verifyJWT] }, create)
 }
