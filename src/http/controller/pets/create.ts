@@ -36,14 +36,13 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
       $Enums.Size.LARGE,
       $Enums.Size.GIANT,
     ]),
-    org_id: z.string().uuid(),
   })
 
   const body = createPetBodySchema.parse(request.body)
 
   const createpetUseCase = makeCreatePetUseCase()
 
-  await createpetUseCase.execute(body)
+  await createpetUseCase.execute({ org_id: request.user.sign.sub, ...body })
 
   reply.status(201).send()
 }

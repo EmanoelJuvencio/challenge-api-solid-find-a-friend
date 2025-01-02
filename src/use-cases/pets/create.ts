@@ -1,5 +1,6 @@
 import { PetsRepository } from '@/repositories/pets-repository'
 import { $Enums, Pet } from '@prisma/client'
+
 interface ICreatePetUseCaseRequest {
   name: string
   about: string
@@ -13,6 +14,7 @@ interface ICreatePetUseCaseRequest {
 interface ICreatePetUseCaseResponse {
   pet: Pet
 }
+
 export class CreatePetUseCase {
   constructor(private petsRepository: PetsRepository) {}
 
