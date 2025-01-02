@@ -1,4 +1,4 @@
-import { OrgsRepository } from '@/repositories/org-repository'
+import { OrgsRepository } from '@/repositories/orgs-repository'
 import { Org } from '@prisma/client'
 import { hash } from 'bcryptjs'
 import { EmailAlreadyExistsError } from '../errors/email-already-exists-Error'

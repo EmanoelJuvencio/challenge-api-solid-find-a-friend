@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client'
-import { OrgsRepository } from '../org-repository'
+import { OrgsRepository } from '../orgs-repository'
 import { prisma } from '@/lib/prisma'
 
 export class PrismaOrgsRepository implements OrgsRepository {
