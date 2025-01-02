@@ -10,8 +10,8 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     age: z.enum([
       $Enums.Age.BABY,
       $Enums.Age.TEENAGER,
-      $Enums.Age.ADULT,
       $Enums.Age.YOUNG_ADULT,
+      $Enums.Age.ADULT,
       $Enums.Age.ELDERLY,
       $Enums.Age.ADVANCED_ELDERLY,
     ]),
@@ -36,6 +36,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
       $Enums.Size.LARGE,
       $Enums.Size.GIANT,
     ]),
+    page: z.coerce.number().min(1).default(1),
   })
 
   const body = createPetBodySchema.parse(request.body)
